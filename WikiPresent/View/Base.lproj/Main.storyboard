@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ap9-nN-Cxk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WikiPresent-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WikiPresent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="1024px-Wikipedia-logo" translatesAutoresizingMaskIntoConstraints="NO" id="iOI-XS-Jlc">
+                                <rect key="frame" x="111" y="160" width="192" height="192"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iOI-XS-Jlc" secondAttribute="height" multiplier="1:1" id="NOd-c3-ExP"/>
+                                    <constraint firstAttribute="width" secondItem="iOI-XS-Jlc" secondAttribute="height" multiplier="1:1" id="Zaf-sx-Cvn"/>
+                                    <constraint firstAttribute="width" secondItem="iOI-XS-Jlc" secondAttribute="height" multiplier="1:1" id="crV-5T-C08"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="92H-6R-fhR" userLabel="Mother Stack View">
+                                <rect key="frame" x="20" y="405" width="374" height="88"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saisir ici le terme à rechercher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-pm-9jU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inz-no-O1g">
+                                        <rect key="frame" x="0.0" y="54" width="374" height="34"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Chercher sur Wikipedia">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonToDefinition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RBK-tA-5UD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="92H-6R-fhR" secondAttribute="trailing" constant="20" id="V88-TZ-Srz"/>
+                            <constraint firstItem="92H-6R-fhR" firstAttribute="top" secondItem="iOI-XS-Jlc" secondAttribute="bottom" constant="53" id="edb-1U-jx5"/>
+                            <constraint firstItem="iOI-XS-Jlc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jf9-dt-iix"/>
+                            <constraint firstItem="92H-6R-fhR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kxl-jy-USe"/>
+                            <constraint firstItem="iOI-XS-Jlc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nSg-Eh-HpV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iOI-XS-Jlc" secondAttribute="trailing" constant="111" id="qew-Rz-QBs"/>
+                            <constraint firstItem="92H-6R-fhR" firstAttribute="top" secondItem="iOI-XS-Jlc" secondAttribute="bottom" constant="53" id="vlN-Or-Zym"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WikiPresent" id="A9E-3k-Phl"/>
+                    <connections>
+                        <outlet property="segueButton" destination="Inz-no-O1g" id="zpE-M4-dSV"/>
+                        <outlet property="textEntryLabel" destination="Sds-pm-9jU" id="aoU-Oe-RXI"/>
+                        <segue destination="dfw-Cx-7fo" kind="show" identifier="toDefinition" id="jTv-2b-0jI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="95.758928571428569"/>
+        </scene>
+        <!--Definition-->
+        <scene sceneID="NDg-Xl-nce">
+            <objects>
+                <viewController id="dfw-Cx-7fo" customClass="DefinitionViewController" customModule="WikiPresent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9rQ-vn-LsN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vis-2M-D8C">
+                                <rect key="frame" x="20" y="160" width="374" height="352"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vis-2M-D8C" secondAttribute="height" multiplier="120:113" id="q8q-66-wyH"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnu-8A-GsD">
+                                <rect key="frame" x="20" y="530" width="374" height="322"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vis-2M-D8C" firstAttribute="top" secondItem="SGR-Nd-EFw" secondAttribute="top" constant="20" id="DJF-Eo-h5q"/>
+                            <constraint firstItem="SGR-Nd-EFw" firstAttribute="trailing" secondItem="rnu-8A-GsD" secondAttribute="trailing" constant="20" id="EbH-fi-uQn"/>
+                            <constraint firstItem="rnu-8A-GsD" firstAttribute="top" secondItem="vis-2M-D8C" secondAttribute="bottom" constant="18" id="ZEz-FL-eSZ"/>
+                            <constraint firstItem="rnu-8A-GsD" firstAttribute="leading" secondItem="SGR-Nd-EFw" secondAttribute="leading" constant="20" id="a5K-pc-qa5"/>
+                            <constraint firstItem="SGR-Nd-EFw" firstAttribute="bottom" secondItem="rnu-8A-GsD" secondAttribute="bottom" constant="10" id="lgQ-XN-2dg"/>
+                            <constraint firstItem="vis-2M-D8C" firstAttribute="leading" secondItem="SGR-Nd-EFw" secondAttribute="leading" constant="20" id="mJO-yY-Tv0"/>
+                            <constraint firstItem="SGR-Nd-EFw" firstAttribute="trailing" secondItem="vis-2M-D8C" secondAttribute="trailing" constant="20" id="wU4-FT-iQf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SGR-Nd-EFw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Definition" id="8qy-8x-uxf"/>
+                    <connections>
+                        <outlet property="definitionIllustrationImageView" destination="vis-2M-D8C" id="RhV-sE-cgu"/>
+                        <outlet property="definitionTextView" destination="rnu-8A-GsD" id="HB3-vJ-x2Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFZ-na-CL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="103.79464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HvX-sq-unL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ap9-nN-Cxk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Rk3-8H-7fA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RMx-g5-ddJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgm-Ta-tdX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1024px-Wikipedia-logo" width="512" height="512"/>
+    </resources>
+</document>

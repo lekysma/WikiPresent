@@ -3,19 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110DEC7FACD6D92CFE2B34BB /* Pods_WikiPresent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCF216C27CD635B065F2E57 /* Pods_WikiPresent.framework */; };
 		FB52D63423AE4038002E79BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52D63323AE4038002E79BF /* AppDelegate.swift */; };
 		FB52D63623AE4038002E79BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52D63523AE4038002E79BF /* SceneDelegate.swift */; };
 		FB52D63823AE4038002E79BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52D63723AE4038002E79BF /* ViewController.swift */; };
 		FB52D63B23AE4038002E79BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB52D63923AE4038002E79BF /* Main.storyboard */; };
 		FB52D63D23AE403B002E79BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB52D63C23AE403B002E79BF /* Assets.xcassets */; };
 		FB52D64023AE403B002E79BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB52D63E23AE403B002E79BF /* LaunchScreen.storyboard */; };
+		FB52D64823AE42AD002E79BF /* DefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52D64723AE42AD002E79BF /* DefinitionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8394C1FAD9AFB8FBDEEA29FD /* Pods-WikiPresent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiPresent.release.xcconfig"; path = "Target Support Files/Pods-WikiPresent/Pods-WikiPresent.release.xcconfig"; sourceTree = "<group>"; };
+		9CCF216C27CD635B065F2E57 /* Pods_WikiPresent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiPresent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B0287D1410E0C5EB30A50E /* Pods-WikiPresent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiPresent.debug.xcconfig"; path = "Target Support Files/Pods-WikiPresent/Pods-WikiPresent.debug.xcconfig"; sourceTree = "<group>"; };
 		FB52D63023AE4038002E79BF /* WikiPresent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiPresent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB52D63323AE4038002E79BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB52D63523AE4038002E79BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		FB52D63C23AE403B002E79BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB52D63F23AE403B002E79BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB52D64123AE403B002E79BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB52D64723AE42AD002E79BF /* DefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110DEC7FACD6D92CFE2B34BB /* Pods_WikiPresent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A1F300B970CF6477A45E38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CCF216C27CD635B065F2E57 /* Pods_WikiPresent.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E152967C663C6B9B145A54F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9B0287D1410E0C5EB30A50E /* Pods-WikiPresent.debug.xcconfig */,
+				8394C1FAD9AFB8FBDEEA29FD /* Pods-WikiPresent.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB52D62723AE4038002E79BF = {
 			isa = PBXGroup;
 			children = (
 				FB52D63223AE4038002E79BF /* WikiPresent */,
 				FB52D63123AE4038002E79BF /* Products */,
+				E152967C663C6B9B145A54F1 /* Pods */,
+				15A1F300B970CF6477A45E38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +84,30 @@
 			children = (
 				FB52D63323AE4038002E79BF /* AppDelegate.swift */,
 				FB52D63523AE4038002E79BF /* SceneDelegate.swift */,
-				FB52D63723AE4038002E79BF /* ViewController.swift */,
-				FB52D63923AE4038002E79BF /* Main.storyboard */,
+				FB98216D23B1AD6C0013CE9B /* Controllers */,
+				FB98216C23B1AD580013CE9B /* View */,
 				FB52D63C23AE403B002E79BF /* Assets.xcassets */,
-				FB52D63E23AE403B002E79BF /* LaunchScreen.storyboard */,
 				FB52D64123AE403B002E79BF /* Info.plist */,
 			);
 			path = WikiPresent;
+			sourceTree = "<group>";
+		};
+		FB98216C23B1AD580013CE9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB52D63E23AE403B002E79BF /* LaunchScreen.storyboard */,
+				FB52D63923AE4038002E79BF /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB98216D23B1AD6C0013CE9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB52D63723AE4038002E79BF /* ViewController.swift */,
+				FB52D64723AE42AD002E79BF /* DefinitionViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB52D64423AE403B002E79BF /* Build configuration list for PBXNativeTarget "WikiPresent" */;
 			buildPhases = (
+				A94F33DF3EA71F67AB7BED8D /* [CP] Check Pods Manifest.lock */,
 				FB52D62C23AE4038002E79BF /* Sources */,
 				FB52D62D23AE4038002E79BF /* Frameworks */,
 				FB52D62E23AE4038002E79BF /* Resources */,
+				2CDCD5419DD4958AACCCC28A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +178,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CDCD5419DD4958AACCCC28A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WikiPresent/Pods-WikiPresent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WikiPresent/Pods-WikiPresent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WikiPresent/Pods-WikiPresent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A94F33DF3EA71F67AB7BED8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WikiPresent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB52D62C23AE4038002E79BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FB52D63823AE4038002E79BF /* ViewController.swift in Sources */,
+				FB52D64823AE42AD002E79BF /* DefinitionViewController.swift in Sources */,
 				FB52D63423AE4038002E79BF /* AppDelegate.swift in Sources */,
 				FB52D63623AE4038002E79BF /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +370,7 @@
 		};
 		FB52D64523AE403B002E79BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B0287D1410E0C5EB30A50E /* Pods-WikiPresent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +389,7 @@
 		};
 		FB52D64623AE403B002E79BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8394C1FAD9AFB8FBDEEA29FD /* Pods-WikiPresent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
