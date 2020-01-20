@@ -19,16 +19,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //darkMode()
-        // on enleve le dark mode pour cette view
-        overrideUserInterfaceStyle = .light
-        // Do any additional setup after loading the view.
+        // on appelle la fonction qui gere les couleurs alternatives lorsque dark mode est detecté
+        if traitCollection.userInterfaceStyle == .dark {
+            darkMode()
+        }
+        
     }
     
     //MARK: - Relevant variables
-    let wikipediaURl = "https://fr.wikipedia.org/w/api.php"
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
     var termDefinitionInfo: String = ""
     var illustration = UIImageView()
+    var lienOriginalImage: String = ""
     let segueName: String = "toDefinition"
+    
+    
+    // une variable pour stocker le lien vers l'image
+    var lienVersLimage: String = ""
     
     //MARK: - Button tapped action
 
@@ -43,8 +50,16 @@ class ViewController: UIViewController {
         if segue.identifier == segueName {
             
             if let secondVC = segue.destination as? DefinitionViewController {
+                //secondVC.imageIllustrative = illustration.image
                 secondVC.definition = termDefinitionInfo
-                secondVC.imageIllustrative = illustration
+                
+                // on va afficher le lien url de l'image
+                //print(lienVersLimage)
+                secondVC.urlImage = lienOriginalImage
+                
+                
+
+                
                 
             } else {
                 fatalError("Could not perform request!")
@@ -56,17 +71,17 @@ class ViewController: UIViewController {
     //MARK: - NETWORKING
       
       func httpCall(termDefinition: String) {
-          let parameters : [String:String] = [
-                 "format" : "json",
-                 "action" : "query",
-                 "prop" : "extracts|pageimages",
-                 "exintro" : "",
-                 "explaintext" : "",
-                 "titles" : termDefinition,
-                 "indexpageids" : "",
-                 "redirects" : "1",
-                 "pithumbsize" : "500"
-                 ]
+        let parameters : [String:String] = [
+               "format" : "json",
+               "action" : "query",
+               "prop" : "extracts|pageimages",
+               "exintro" : "",
+               "explaintext" : "",
+               "titles" : termDefinition,
+               "indexpageids" : "",
+               "redirects" : "1",
+               "pithumbsize" : "500"
+               ]
           
           //
           request(wikipediaURl, method: .get, parameters: parameters).responseJSON { (response) in
@@ -78,15 +93,20 @@ class ViewController: UIViewController {
                 // 3 valeurs : pageID,definition et source de l'image
                 let pageId = definitionJSON["query"]["pageids"][0].stringValue
                 let pageDefinition = definitionJSON["query"]["pages"][pageId]["extract"].stringValue
+            
                 let imageSource = definitionJSON["query"]["pages"][pageId]["thumbnail"]["source"].stringValue
-                
-                self.termDefinitionInfo = pageDefinition
+                //on attache ces valeurs extraites aux bonnes variables
                 self.illustration.sd_setImage(with: URL(string: imageSource))
+                self.termDefinitionInfo = pageDefinition
+                self.lienOriginalImage = imageSource
+                
+                
+                                
                 
                 
                 // cas ou on n'a pas de definition
                 if pageDefinition == "" {
-                    self.termDefinitionInfo =  "Désolé,ce que vous cherchez ne se trouve pas sur Wikipedia"
+                    self.termDefinitionInfo =  "Sorry, we could not find what you are looking for \n Please try another research"
                 }
                 
                 // et on effectue le segue vers le second view controller ici
@@ -101,19 +121,19 @@ class ViewController: UIViewController {
     
     //MARK: - FONCTION QUI GERE LES COULEURS POUR LE DARK MODE
     func darkMode() {
-        //la couleur du texte de la barre de navigation
-        navigationController?.navigationBar.tintColor = UIColor.systemGray
-        // la couleur du text du placeholder
-        textEntryLabel.attributedPlaceholder = NSAttributedString(string: "Saisir ici le terme à rechercher", attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
+        //la couleur du texte de la barre de navigation ici blanc
+        navigationController?.navigationBar.tintColor = UIColor.white
+        // la couleur du text du placeholder ici bleu
+        textEntryLabel.attributedPlaceholder = NSAttributedString(string: "Saisir ici le terme à rechercher", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
         // la couleur du text
         textEntryLabel.textColor = UIColor.label
-        //la couleur du text du bouton
-        segueButton.setTitleColor(.secondaryLabel, for: .normal)
+        //la couleur du texte du bouton ici blanc
+        segueButton.setTitleColor(UIColor.black, for: .normal)
         
         //la couleur de fonds du bouton
-        segueButton.backgroundColor = UIColor.secondaryLabel
+        segueButton.backgroundColor = UIColor.white
         //la couleur de la bordure du bouton
-        segueButton.layer.borderColor = UIColor.secondaryLabel.cgColor
+        segueButton.layer.borderColor = UIColor.white.cgColor
         segueButton.layer.borderWidth = 1
     }
     

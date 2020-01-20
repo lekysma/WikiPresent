@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import SDWebImage
 
 class DefinitionViewController: UIViewController {
 
@@ -19,14 +20,25 @@ class DefinitionViewController: UIViewController {
     // on cree deux variables pour attacher l'image illustrative et la definition
     
     var definition: String?
-    var imageIllustrative: UIImageView?
+    var urlImage: String?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //definitionTextView.text = donnees
-        definitionTextView.text = definition
-        definitionIllustrationImageView = imageIllustrative
+        // on s'assure que urlImage n'est pas nul
+        if urlImage != nil {
+            //test
+            print(urlImage)
+            //on utilise sd image pour afficher le texte via l'url
+            definitionIllustrationImageView.sd_setImage(with: URL(string: urlImage!))
+            //on affiche le texte ici pour avoir un affichage en meme temps que l'image
+            definitionTextView.text = definition
+        } else {
+            fatalError("Unable to recover image Url!")
+        }
+        
 
         // Do any additional setup after loading the view.
     }
